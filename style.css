@@ -1,0 +1,238 @@
+* {
+  /*
+   * { = resetar todo página, vou zera o que vem de padrão.
+  box-sizing: border-box; = a medida do tamanho da caixa para que seja medida atraves da borda.
+  */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white; /*--text-color estou definindo um nome qualquer para receber texto padrão, isso significa que onde eu usar essa variavel, irá ficar em branco*/
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black; /*estou trocando a cor do --text-color para black*/
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg.crdownload);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+  /*Tudo que será declarado aqui abaixo, é tudo o que foi declarado anteriormente, só que tudo em uma linha. Também pode ser conhecido como shorthand ou atalho*/
+  /*background: color image repeate position/size*/
+  background: var(--bg-url) no-repeat top center / cover; /*cover cobre todo o espaço visivel, fica no tamanho da tela total*/
+  height: 100vh; /*ajustando para que a imagem fique com a altura de acordo com dispositivo  */
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color); /*var é a função que preciso usar */
+}
+
+#container {
+  width: 100%; /*anteriormente estava em 360px fixo*/
+  max-width: 588px;
+  /*border: 1px solid red;*/
+  margin: 56px auto 0px; /*Isso é mesmo coisas do que isso: =>
+  margin-top: 56px;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto
+  
+  padding: 100px; por causa do box-sizing ele vai fazer esses 100px de preenchimento interno seja aplicado sem afetaro width
+  */
+  padding: 0 24px;
+}
+
+/*Profile*/
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500px;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*Switch*/
+
+#switch {
+  /*border: 1px solid red;*/
+  position: relative;
+  width: 64px; /*deixando a largura no tamanho igual ao span*/
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: slide-back 0.2s; /*não preciso colocar o forwards pois ele volta para left 0, e o lef já é 0*/
+}
+
+.light #switch button {
+  /*right: 0; por causa da animação não vou usar mais o light 0 */
+  /*left: initial; left que volta para sua posição inicial / por causa da animação também não vou mais usar esse tambem*/
+  animation: slide-in 0.4s forwards; /* vai fazer a animação marter as propriedades que foi definido no final*/
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column; /* só posso usar esse comando se usar antes flex | vai colocar em coluna*/
+  gap: 16px; /* dá um espaço na parte de cima e em baixo*/
+  padding: 24px 0;
+}
+
+ul li a {
+  /*border: 1px solid red;*/
+  display: flex; /* o flex cria uma linha virtua no meio da caixa, ficando o texto e abaixo outra linha*/
+  align-items: center; /* alinha no meio ficando no meio da linha virutal por causa do display: flex*/
+  justify-content: center; /*centraliza*/
+  padding: 24px 0;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /* Border-radius = arredondamento de borda */
+
+  backdrop-filter: blur(4px); /* vai deixar com enfeito meio de embaçado*/
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /*esse filtro tem que ser aplicado para as versões rodarem no safari*/
+  text-decoration: none;
+  font-weight: 500px;
+
+  transition: background 0.2s;
+}
+
+/* pseudo-selector, irá aplicar mudanças ao passar o mouse sobre*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color);
+}
+
+/*Social links*/
+#social-links {
+  justify-content: center;
+  display: flex;
+
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+/*Configurações para alinhar o circulo em volta ao icone da rede social*/
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 14px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* media queries - */
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg); /*quando tela for maior que 700px, usar essa imagem de background*/
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg); /*quando tela foi maior 700px no light, mudar para esse background*/
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+
+.circular_image {
+  width: 200px;
+  height: 200px;
+  border-radius: 90%;
+  overflow: hidden;
+  background-color: blue;
+  /* commented for demo
+  float: left;
+  margin-left: 125px;
+  margin-top: 20px;
+  */
+  
+  /*for demo*/
+  display:inline-block;
+  vertical-align:middle;
+}
+.circular_image img{
+  width: 100%;
+}
