@@ -14,6 +14,14 @@ function toggleClass(element, className){
   $(element).toggleClass(className)
 }
 
+function toggleColor(bool){
+  if(bool){
+    $("body .footer").css("--footer-background", "#9455ed");
+  }else {
+    $("body .footer").css("--footer-background", "#ed558a");
+  }  
+}
+
 
 function toggleMode() {
   
@@ -22,14 +30,14 @@ function toggleMode() {
 
   if (html.classList.contains("light")) {
     
-    html.classList.remove(
-      "light"
-    )
+    html.classList.remove("light")
     changeAudio(false)
+    toggleColor(true)
     
   } else {
     html.classList.add("light")
     changeAudio(true)
+    toggleColor(false)
   }
   
   const img =
