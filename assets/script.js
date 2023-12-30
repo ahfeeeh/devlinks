@@ -10,11 +10,15 @@ function changeAudio(bool){
   audio.play();
 }
 
+function toggleClass(element, className){
+  $(element).toggleClass(className)
+}
+
 
 function toggleMode() {
   
-  const html =
-    document.documentElement
+  const html = document.documentElement
+  toggleClass("#drawing_canvas", "hide")
 
   if (html.classList.contains("light")) {
     
@@ -22,6 +26,7 @@ function toggleMode() {
       "light"
     )
     changeAudio(false)
+    
   } else {
     html.classList.add("light")
     changeAudio(true)

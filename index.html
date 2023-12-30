@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br" class="">
   <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
       rel="stylesheet"
@@ -11,13 +13,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AhFeeeh Links</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Ah Feeeh Lipe Links</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styleParty.css">
   </head>
   <body>
-
+    
     <!-- partial:index.partial.html -->
-<div class="main"></div>
+<div class="main">
+  
+</div>
 <div class="footer">
   <div class="bubbles">
     <div class="bubble" style="--size:5.017096685802106rem; --distance:9.34908268749541rem; --position:31.913500862118703%; --time:2.368157604789327s; --delay:-2.7579896095201284s;"></div>
@@ -152,6 +157,9 @@
   <div class="content">
 
     <div id="container">
+
+      <canvas id="drawing_canvas" class="hide"></canvas>
+
       <div id="profile">
         <img class="circular_image"
           src="./assets/avatar-fefe-dark.jpg"
@@ -219,13 +227,10 @@
     </filter>
   </defs>
 </svg>
-<!-- partial -->
-
-
-    
+<!-- partial -->  
 
     
-
+<script  src="./scriptParty.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
