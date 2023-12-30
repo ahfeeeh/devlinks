@@ -1,7 +1,7 @@
 function changeAudio(bool){
   var audio = document.getElementById("audio");
   if (bool){
-    audio.src="./assets/ymca.mp3"
+    audio.src="./assets/ymca-up.mp3"
   }else{
     audio.src="./assets/mosca.mp3"
   }
